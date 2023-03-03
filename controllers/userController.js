@@ -42,7 +42,7 @@ const registerUser = asyncHandler(async (req, res) => {
 
   //   Generate Token
   const token = generateToken(user._id);
-
+console.log(token);
   // Send HTTP-only cookie
   res.cookie("token", token, {
     path: "/",
@@ -92,7 +92,7 @@ const loginUser = asyncHandler(async (req, res) => {
 
   //   Generate Token
   const token = generateToken(user._id);
-  
+  console.log(token);
   if(passwordIsCorrect){
    // Send HTTP-only cookie
   res.cookie("token", token, {
@@ -187,6 +187,7 @@ const updateUser = asyncHandler(async (req, res) => {
       phone: updatedUser.phone,
       bio: updatedUser.bio,
     });
+    console.log(updateUser);
   } else {
     res.status(404);
     throw new Error("User not found");
