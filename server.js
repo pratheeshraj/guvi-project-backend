@@ -19,7 +19,7 @@ app.use(express.urlencoded({ extended: false }));
 app.use(bodyParser.json());
 app.use(
   cors({
-    origin: ["http://localhost:3000", "https://master--frolicking-chimera-fd41d2.netlify.app"],
+    origin: ["http://localhost:3000", "https://frolicking-chimera-fd41d2.netlify.app"],
     credentials: true,
   })
 );
