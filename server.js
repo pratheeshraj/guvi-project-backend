@@ -19,7 +19,7 @@ app.use(express.urlencoded({ extended: false }));
 app.use(bodyParser.json());
 const allowedOrigins = [
   "http://localhost:3000",
-  "https://pinventery.netlify.app/"
+  "https://pinventery.netlify.app"
 ];
 
 app.use(
