@@ -17,9 +17,20 @@ app.use(express.json());
 app.use(cookieParser());
 app.use(express.urlencoded({ extended: false }));
 app.use(bodyParser.json());
+const allowedOrigins = [
+  "http://localhost:3000",
+  "https://pinventery.netlify.app/"
+];
+
 app.use(
   cors({
-    origin: ["http://localhost:3000", "https://pinventery.netlify.app/"],
+    origin: (origin, callback) => {
+      if (!origin || allowedOrigins.includes(origin)) {
+        callback(null, true);
+      } else {
+        callback(new Error("Not allowed by CORS"));
+      }
+    },
     credentials: true,
   })
 );
